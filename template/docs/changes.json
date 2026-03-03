@@ -1,0 +1,163 @@
+{
+  "projectName": "Admin User Management UI",
+  "generatedAt": "2026-03-04T00:00:00Z",
+  "updatedAt": "2026-03-04T00:07:00Z",
+  "summary": {
+    "totalBatches": 4,
+    "totalTasks": 7,
+    "completedTasks": 7,
+    "remainingTasks": 0
+  },
+  "batches": [
+    {
+      "id": "C1",
+      "description": "Localize all views to match Figma design (Korean text, layout fixes, pixel-perfect styling)",
+      "createdAt": "2026-03-04T00:00:00Z",
+      "progress": {
+        "total": 4,
+        "completed": 4,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C1.1",
+          "title": "Localize types, constants, and mock data to Korean",
+          "description": "Update USER_TABLE_COLUMNS labels, BASIC_INFO_ROW labels, form field options, and mock user data to Korean matching the Figma design exactly.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/features/user-management/types/index.ts",
+            "template/src/lib/mock-data.ts"
+          ],
+          "blocked_by": []
+        },
+        {
+          "id": "C1.2",
+          "title": "Localize sidebar component to Korean and match Figma",
+          "description": "Change all sidebar navigation labels, admin subtitle, and logout text to Korean. Match Figma sidebar layout exactly.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/components/layouts/app-sidebar.tsx"
+          ],
+          "blocked_by": []
+        },
+        {
+          "id": "C1.3",
+          "title": "Localize dashboard page components to Korean and fix layout",
+          "description": "Update page-header, tab-navigation, search-bar, pagination-controls, badge, and page.tsx to Korean. Fix pagination button layout to match Figma (all 4 nav buttons together, then page indicator).",
+          "status": "completed",
+          "complexity": "high",
+          "agent": "potenlab-high-coder",
+          "files": [
+            "template/src/components/common/page-header.tsx",
+            "template/src/components/user-management/tab-navigation.tsx",
+            "template/src/components/user-management/search-bar.tsx",
+            "template/src/components/user-management/pagination-controls.tsx",
+            "template/src/components/user-management/user-table.tsx",
+            "template/src/app/page.tsx",
+            "template/src/components/ui/badge.tsx"
+          ],
+          "blocked_by": []
+        },
+        {
+          "id": "C1.4",
+          "title": "Localize user detail page to Korean and match Figma",
+          "description": "Update user-detail-form section labels, toggle labels, and detail page header props to Korean.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/components/user-management/user-detail-form.tsx",
+            "template/src/app/users/[id]/page.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C2",
+      "description": "Fix sidebar to match Figma design — remove parent icons, add sub-item icons, fix selected state styling",
+      "createdAt": "2026-03-04T00:02:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C2.1",
+          "title": "Fix sidebar icons and selected state to match Figma design",
+          "description": "1) Update SidebarSubItem type in types/index.ts to include optional icon field (LucideIcon). Make SidebarNavItem.icon optional. 2) In app-sidebar.tsx: remove icons from parent accordion triggers (사용자, 매치, 관리자) — only 홈 keeps its Home icon. 3) Add icons to each sub-item: 사용자관리→UserRound, 매치 관리→LayoutGrid, 공지사항 관리→Megaphone, 신고 관리→ShieldAlert, 약관 관리→ScrollText. 4) Fix selected sub-item state: replace dot indicator + bg-sidebar-selected with bg-[#EEF2F6] rounded-[4px] text-black. Non-selected sub-items use text-[#5A5E6A]. 5) Sub-items should be wrapped in px-[8px] container with inner px-[14px] py-[8px] gap-[10px] and h-[44px]. 6) Accordion trigger text should be text-[#5A5E6A] with font-inter text-[16px]. 7) The accordion chevron should be on the right, size-6 (24px). 8) Footer logout should be centered with border-t, py-[20px].",
+          "status": "completed",
+          "complexity": "high",
+          "agent": "potenlab-high-coder",
+          "files": [
+            "template/src/types/index.ts",
+            "template/src/components/layouts/app-sidebar.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C3",
+      "description": "Fix sidebar layout — add full-width header/footer dividers matching Figma screenshot exactly",
+      "createdAt": "2026-03-04T00:04:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C3.1",
+          "title": "Restructure sidebar layout for full-width dividers",
+          "description": "Restructure app-sidebar.tsx layout from single <nav> with p-6 to 3 separate sections so dividers span full width. Header: own div with border-b border-[#E2E8F0] py-[20px] px-[16px]. Navigation: flex-1 overflow-y-auto with inner padding. Footer: own div with border-t border-[#E2E8F0] py-[20px]. The border-bottom on header and border-top on footer must be full-width (edge to edge) matching the Figma screenshot.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/components/layouts/app-sidebar.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C4",
+      "description": "Replace all font-inter with font-pretendard across all component files",
+      "createdAt": "2026-03-04T00:06:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C4.1",
+          "title": "Replace font-inter with font-pretendard in all components",
+          "description": "Replace every occurrence of 'font-inter' with 'font-pretendard' in these files: 1) template/src/components/layouts/app-sidebar.tsx (4 occurrences), 2) template/src/components/ui/accordion.tsx (1 occurrence), 3) template/src/components/ui/button.tsx (2 occurrences), 4) template/src/components/ui/input.tsx (1 occurrence), 5) template/src/components/ui/select.tsx (1 occurrence), 6) template/src/components/ui/badge.tsx (1 occurrence). Use replace_all on each file to change 'font-inter' to 'font-pretendard'.",
+          "status": "completed",
+          "complexity": "high",
+          "agent": "potenlab-high-coder",
+          "files": [
+            "template/src/components/layouts/app-sidebar.tsx",
+            "template/src/components/ui/accordion.tsx",
+            "template/src/components/ui/button.tsx",
+            "template/src/components/ui/input.tsx",
+            "template/src/components/ui/select.tsx",
+            "template/src/components/ui/badge.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    }
+  ]
+}
