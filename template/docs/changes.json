@@ -1,11 +1,11 @@
 {
   "projectName": "Admin User Management UI",
   "generatedAt": "2026-03-04T00:00:00Z",
-  "updatedAt": "2026-03-04T00:07:00Z",
+  "updatedAt": "2026-03-04T00:20:00Z",
   "summary": {
-    "totalBatches": 4,
-    "totalTasks": 7,
-    "completedTasks": 7,
+    "totalBatches": 9,
+    "totalTasks": 12,
+    "completedTasks": 12,
     "remainingTasks": 0
   },
   "batches": [
@@ -154,6 +154,138 @@
             "template/src/components/ui/input.tsx",
             "template/src/components/ui/select.tsx",
             "template/src/components/ui/badge.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C5",
+      "description": "Extract DashboardLayout component from app/layout.tsx into components/layouts/",
+      "createdAt": "2026-03-04T00:10:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C5.1",
+          "title": "Create DashboardLayout component and simplify app/layout.tsx",
+          "description": "1) CREATE template/src/components/layouts/dashboard-layout.tsx — a client-free server component that composes AppSidebar + ContentLayout. It accepts { children: React.ReactNode } and renders: <><AppSidebar /><main id='main-content'><ContentLayout>{children}</ContentLayout></main></>. Include the skip-to-content <a> link. 2) MODIFY template/src/app/layout.tsx — remove AppSidebar, ContentLayout, and skip-link imports. Import DashboardLayout from @/components/layouts/dashboard-layout. Render <DashboardLayout>{children}</DashboardLayout> inside <body>. Keep metadata, font config, and <html>/<head>/<body> tags in layout.tsx.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/components/layouts/dashboard-layout.tsx",
+            "template/src/app/layout.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C6",
+      "description": "Extract reusable FormField and LabeledSwitch components from user-detail-form into components/common/",
+      "createdAt": "2026-03-04T00:14:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C6.1",
+          "title": "Create reusable FormField and LabeledSwitch components, refactor user-detail-form to use them",
+          "description": "1) CREATE template/src/components/common/form-field.tsx — generic reusable form field. 2) CREATE template/src/components/common/labeled-switch.tsx — reusable labeled toggle. 3) MODIFY template/src/components/user-management/user-detail-form.tsx to use these new components. See detailed spec in agent prompt.",
+          "status": "completed",
+          "complexity": "high",
+          "agent": "potenlab-high-coder",
+          "files": [
+            "template/src/components/common/form-field.tsx",
+            "template/src/components/common/labeled-switch.tsx",
+            "template/src/components/user-management/user-detail-form.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C7",
+      "description": "Fix FormField select trigger padding — balance left/right padding for proper justify-between",
+      "createdAt": "2026-03-04T00:16:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C7.1",
+          "title": "Fix SelectTrigger right padding in FormField component",
+          "description": "The base SelectTrigger has px-4 pr-12 (16px left, 48px right), creating unbalanced padding. Override with pr-4 on the SelectTrigger className in form-field.tsx so left and right padding match at 16px. twMerge in cn() handles the override.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/components/common/form-field.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C8",
+      "description": "Add default upload state to ProfileImages with file input support",
+      "createdAt": "2026-03-04T00:18:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C8.1",
+          "title": "Add default upload state to ProfileImages with file input support",
+          "description": "Add maxImages, editable, and onImageUpload props to ProfileImages. Render empty placeholder slots with dashed border and ImagePlus icon when editable. Wire up file input, preview URL generation, and state management through UserDetailForm and UserDetail.",
+          "status": "completed",
+          "complexity": "high",
+          "agent": "potenlab-high-coder",
+          "files": [
+            "template/src/components/user-management/profile-images.tsx",
+            "template/src/components/user-management/user-detail-form.tsx",
+            "template/src/features/user-management/components/user-detail.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    },
+    {
+      "id": "C9",
+      "description": "Refactor UserDetailForm to use react-hook-form — useForm in parent, Controller in form component",
+      "createdAt": "2026-03-04T00:20:00Z",
+      "progress": {
+        "total": 1,
+        "completed": 1,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C9.1",
+          "title": "Refactor user detail form to use react-hook-form with useForm in parent component",
+          "description": "Integrate react-hook-form (already installed) into the user detail page. 1) Add UserDetailFormValues type in types/index.ts. 2) Replace useState-based form state in user-detail.tsx with useForm(). 3) Refactor user-detail-form.tsx to accept form methods and use Controller.",
+          "status": "completed",
+          "complexity": "high",
+          "agent": "potenlab-high-coder",
+          "files": [
+            "template/src/features/user-management/types/index.ts",
+            "template/src/features/user-management/components/user-detail.tsx",
+            "template/src/components/user-management/user-detail-form.tsx"
           ],
           "blocked_by": []
         }

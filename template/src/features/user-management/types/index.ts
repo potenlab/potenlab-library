@@ -28,6 +28,24 @@ export interface User {
   settings: UserSettings;
 }
 
+export interface UserDetailFormValues {
+  role: string;
+  nickname: string;
+  phone: string;
+  age: string;
+  gender: string;
+  exerciseStyle: string;
+  gymRelocation: string;
+  region: string;
+  bench: string;
+  deadlift: string;
+  squat: string;
+  intro: string;
+  profilePublic: boolean;
+  matchChatNotification: boolean;
+  marketingNotification: boolean;
+}
+
 /** @deprecated Use ColumnDef<User> from @tanstack/react-table with getUserColumns() instead */
 export interface UserTableColumn {
   key: keyof User | "delete";

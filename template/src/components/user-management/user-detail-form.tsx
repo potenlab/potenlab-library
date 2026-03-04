@@ -1,81 +1,48 @@
 "use client";
 
-import type { User, FormField } from "@/features/user-management/types";
+import { Controller } from "react-hook-form";
+import type { UseFormReturn } from "react-hook-form";
+import type { User, FormField as FormFieldType, UserDetailFormValues } from "@/features/user-management/types";
 import {
   BASIC_INFO_ROW_1,
   BASIC_INFO_ROW_2,
   BASIC_INFO_ROW_3,
 } from "@/features/user-management/types";
 import { ProfileImages } from "@/components/user-management/profile-images";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
+import { FormField } from "@/components/common/form-field";
+import { LabeledSwitch } from "@/components/common/labeled-switch";
 import { Separator } from "@/components/ui/separator";
 
 export interface UserDetailFormProps {
   user: User;
-  formValues: Record<string, string>;
-  toggleStates: {
-    profilePublic: boolean;
-    matchChatNotification: boolean;
-    marketingNotification: boolean;
-  };
-  onInputChange: (key: string, value: string) => void;
-  onToggleChange: (key: string, checked: boolean) => void;
+  form: UseFormReturn<UserDetailFormValues>;
+  profileImages?: string[];
+  onImageUpload?: (index: number, file: File) => void;
 }
 
 export function UserDetailForm({
   user,
-  formValues,
-  toggleStates,
-  onInputChange,
-  onToggleChange,
+  form,
+  profileImages,
+  onImageUpload,
 }: UserDetailFormProps) {
-  const renderField = (field: FormField) => {
-    const fieldId = `field-${field.key}`;
-
-    if (field.type === "select") {
-      return (
-        <div key={field.key} className="flex flex-col">
-          <Label htmlFor={fieldId}>{field.label}</Label>
-          <Select
-            value={formValues[field.key] ?? ""}
-            onValueChange={(value) => onInputChange(field.key, value)}
-          >
-            <SelectTrigger id={fieldId} className="h-[52px]">
-              <SelectValue placeholder={field.label} />
-            </SelectTrigger>
-            <SelectContent>
-              {field.options?.map((option) => (
-                <SelectItem key={option} value={option}>
-                  {option}
-                </SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
-      );
-    }
-
-    return (
-      <div key={field.key} className="flex flex-col">
-        <Label htmlFor={fieldId}>{field.label}</Label>
-        <Input
-          id={fieldId}
-          className="h-[52px]"
-          value={formValues[field.key] ?? ""}
-          onChange={(e) => onInputChange(field.key, e.target.value)}
+  const renderField = (field: FormFieldType) => (
+    <Controller
+      key={field.key}
+      name={field.key as keyof UserDetailFormValues}
+      control={form.control}
+      render={({ field: controllerField }) => (
+        <FormField
+          id={`field-${field.key}`}
+          label={field.label}
+          type={field.type}
+          value={controllerField.value as string}
+          options={field.options}
+          onChange={controllerField.onChange}
         />
-      </div>
-    );
-  };
+      )}
+    />
+  );
 
   return (
     <div className="flex flex-col gap-6">
@@ -87,19 +54,27 @@ export function UserDetailForm({
 
         {/* Profile Images */}
         <div className="mb-[24px]">
-          <ProfileImages images={user.profileImages} />
+          <ProfileImages
+            images={profileImages ?? user.profileImages}
+            editable={!!onImageUpload}
+            onImageUpload={onImageUpload}
+          />
         </div>
 
         {/* One-Line Intro */}
-        <div className="flex flex-col">
-          <Label htmlFor="field-intro">한줄 소개</Label>
-          <Input
-            id="field-intro"
-            className="h-[52px]"
-            value={formValues.intro}
-            onChange={(e) => onInputChange("intro", e.target.value)}
-          />
-        </div>
+        <Controller
+          name="intro"
+          control={form.control}
+          render={({ field: controllerField }) => (
+            <FormField
+              id="field-intro"
+              label="한줄 소개"
+              type="input"
+              value={controllerField.value}
+              onChange={controllerField.onChange}
+            />
+          )}
+        />
 
         {/* Row 1: Role, Nickname, Phone, Age */}
         <div className="grid grid-cols-4 gap-6">
@@ -127,56 +102,42 @@ export function UserDetailForm({
         </h2>
 
         <div className="flex flex-row gap-[100px]">
-          {/* Profile Public */}
-          <div className="flex items-center gap-3">
-            <label
-              htmlFor="toggle-profilePublic"
-              className="font-pretendard text-[16px] font-medium text-black select-none cursor-pointer"
-            >
-              프로필 공개
-            </label>
-            <Switch
-              id="toggle-profilePublic"
-              checked={toggleStates.profilePublic}
-              onCheckedChange={(checked) =>
-                onToggleChange("profilePublic", checked)
-              }
-            />
-          </div>
-
-          {/* Match & Chat Notification */}
-          <div className="flex items-center gap-3">
-            <label
-              htmlFor="toggle-matchChatNotification"
-              className="font-pretendard text-[16px] font-medium text-black select-none cursor-pointer"
-            >
-              매치 & 채팅 알림
-            </label>
-            <Switch
-              id="toggle-matchChatNotification"
-              checked={toggleStates.matchChatNotification}
-              onCheckedChange={(checked) =>
-                onToggleChange("matchChatNotification", checked)
-              }
-            />
-          </div>
-
-          {/* Marketing Notification */}
-          <div className="flex items-center gap-3">
-            <label
-              htmlFor="toggle-marketingNotification"
-              className="font-pretendard text-[16px] font-medium text-black select-none cursor-pointer"
-            >
-              마케팅 알림
-            </label>
-            <Switch
-              id="toggle-marketingNotification"
-              checked={toggleStates.marketingNotification}
-              onCheckedChange={(checked) =>
-                onToggleChange("marketingNotification", checked)
-              }
-            />
-          </div>
+          <Controller
+            name="profilePublic"
+            control={form.control}
+            render={({ field: controllerField }) => (
+              <LabeledSwitch
+                id="toggle-profilePublic"
+                label="프로필 공개"
+                checked={controllerField.value}
+                onCheckedChange={controllerField.onChange}
+              />
+            )}
+          />
+          <Controller
+            name="matchChatNotification"
+            control={form.control}
+            render={({ field: controllerField }) => (
+              <LabeledSwitch
+                id="toggle-matchChatNotification"
+                label="매치 & 채팅 알림"
+                checked={controllerField.value}
+                onCheckedChange={controllerField.onChange}
+              />
+            )}
+          />
+          <Controller
+            name="marketingNotification"
+            control={form.control}
+            render={({ field: controllerField }) => (
+              <LabeledSwitch
+                id="toggle-marketingNotification"
+                label="마케팅 알림"
+                checked={controllerField.value}
+                onCheckedChange={controllerField.onChange}
+              />
+            )}
+          />
         </div>
       </div>
     </div>

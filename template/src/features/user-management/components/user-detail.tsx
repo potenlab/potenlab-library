@@ -1,12 +1,14 @@
 "use client";
 
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Pencil } from "lucide-react";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { PageHeader } from "@/components/common/page-header";
 import { UserDetailForm } from "@/components/user-management/user-detail-form";
 import { mockUsers } from "@/lib/mock-data";
+import type { UserDetailFormValues } from "@/features/user-management/types";
 
 export interface UserDetailProps {
   userId: string;
@@ -15,39 +17,45 @@ export interface UserDetailProps {
 export function UserDetail({ userId }: UserDetailProps) {
   const user = mockUsers.find((u) => u.id === userId) || mockUsers[0];
 
-  const [formValues, setFormValues] = useState<Record<string, string>>({
-    role: user.role,
-    nickname: user.nickname,
-    phone: user.phone,
-    age: user.age,
-    gender: user.gender,
-    exerciseStyle: user.exerciseStyle,
-    gymRelocation: user.gymRelocation,
-    region: user.region,
-    bench: user.bench,
-    deadlift: user.deadlift,
-    squat: user.squat,
-    intro: user.intro,
+  const [profileImages, setProfileImages] = useState<string[]>(user.profileImages);
+
+  const form = useForm<UserDetailFormValues>({
+    defaultValues: {
+      role: user.role,
+      nickname: user.nickname,
+      phone: user.phone,
+      age: user.age,
+      gender: user.gender,
+      exerciseStyle: user.exerciseStyle,
+      gymRelocation: user.gymRelocation,
+      region: user.region,
+      bench: user.bench,
+      deadlift: user.deadlift,
+      squat: user.squat,
+      intro: user.intro,
+      profilePublic: user.settings.profilePublic,
+      matchChatNotification: user.settings.matchChatNotification,
+      marketingNotification: user.settings.marketingNotification,
+    },
   });
 
-  const [toggleStates, setToggleStates] = useState({
-    profilePublic: user.settings.profilePublic,
-    matchChatNotification: user.settings.matchChatNotification,
-    marketingNotification: user.settings.marketingNotification,
-  });
-
-  const handleInputChange = (key: string, value: string) => {
-    setFormValues((prev) => ({ ...prev, [key]: value }));
+  const handleImageUpload = (index: number, file: File) => {
+    const previewUrl = URL.createObjectURL(file);
+    setProfileImages((prev) => {
+      const updated = [...prev];
+      if (index < updated.length) {
+        updated[index] = previewUrl;
+      } else {
+        updated.push(previewUrl);
+      }
+      return updated;
+    });
   };
 
-  const handleToggleChange = (key: string, checked: boolean) => {
-    setToggleStates((prev) => ({ ...prev, [key]: checked }));
-  };
-
-  const handleSave = () => {
+  const handleSave = form.handleSubmit((data) => {
     // TODO: implement save logic
-    console.log("Save:", { formValues, toggleStates });
-  };
+    console.log("Save:", data);
+  });
 
   return (
     <Card>
@@ -62,10 +70,9 @@ export function UserDetail({ userId }: UserDetailProps) {
 
         <UserDetailForm
           user={user}
-          formValues={formValues}
-          toggleStates={toggleStates}
-          onInputChange={handleInputChange}
-          onToggleChange={handleToggleChange}
+          form={form}
+          profileImages={profileImages}
+          onImageUpload={handleImageUpload}
         />
       </CardContent>
     </Card>
