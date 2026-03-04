@@ -9,6 +9,7 @@ const sidebars: SidebarsConfig = {
         "getting-started/installation",
         "getting-started/setup",
         "getting-started/quick-start",
+        "getting-started/admin-panel",
       ],
     },
     {

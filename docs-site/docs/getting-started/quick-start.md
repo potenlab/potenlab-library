@@ -14,7 +14,9 @@ The fastest way to get started is with the CLI:
 npx potenlab-ui init
 ```
 
-This copies the global stylesheet and Tailwind configuration into your project.
+This scaffolds a complete Next.js project with `@potenlab/ui` pre-configured. Currently the **admin** template is available, which sets up a full admin dashboard with sidebar navigation, data tables, and form pages.
+
+See the [Admin Panel Template](./admin-panel) guide for full details.
 
 ## Your First Component
 
@@ -78,6 +80,7 @@ export default function LoginForm() {
 
 ## Next Steps
 
+- Scaffold a full project with the [Admin Panel Template](./admin-panel)
 - Browse the [UI Primitives](/docs/components/ui/button) to see all available components
 - Learn about [Import Paths](/docs/guides/import-paths) for tree-shaking
 - Explore [Theming](/docs/guides/theming) to customize the design tokens
