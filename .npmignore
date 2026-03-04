@@ -1,7 +1,11 @@
 src/
 .storybook/
-template/
 *.stories.tsx
 tsup.config.ts
+tsup.cli.config.ts
 tsconfig.json
 .claude/
+template/**/node_modules/
+template/**/.next/
+template/**/bun.lock
+template/**/package-lock.json

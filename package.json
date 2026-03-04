@@ -22,9 +22,13 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "bin": {
+    "potenlab-ui": "./dist/cli.js"
+  },
   "files": [
     "dist",
-    "src/styles"
+    "src/styles",
+    "template"
   ],
   "publishConfig": {
     "access": "public"
@@ -93,7 +97,7 @@
     "./styles/globals.css": "./dist/styles/globals.css"
   },
   "scripts": {
-    "build": "tsup && mkdir -p dist/styles && cp src/styles/globals.css dist/styles/globals.css",
+    "build": "tsup && tsup --config tsup.cli.config.ts && mkdir -p dist/styles && cp src/styles/globals.css dist/styles/globals.css && chmod +x dist/cli.js",
     "dev": "tsup --watch",
     "typecheck": "tsc --noEmit",
     "storybook": "storybook dev -p 6006",
@@ -116,6 +120,7 @@
     }
   },
   "dependencies": {
+    "@clack/prompts": "^0.10.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.576.0",
