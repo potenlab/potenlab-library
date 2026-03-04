@@ -7,6 +7,21 @@ Potenlab's shared React UI component library built with Tailwind CSS 4, Radix UI
 
 [Storybook](https://potenlab-library.vercel.app) | [npm](https://www.npmjs.com/package/@potenlab/ui)
 
+## Quick Start
+
+Scaffold a new project with a single command:
+
+```bash
+npx @potenlab/ui init
+```
+
+This will prompt you to select a template (e.g. `admin`) and copy the starter files into your current directory. Then:
+
+```bash
+npm install
+npm run dev
+```
+
 ## Installation
 
 ```bash
@@ -344,6 +359,7 @@ bun run release:major
 
 ```
 src/
+  cli/            # CLI source (potenlab-ui init)
   components/
     ui/           # Radix UI primitives with Tailwind styling
     common/       # Higher-level reusable components
@@ -352,7 +368,8 @@ src/
   lib/            # Utility functions (cn, formatNumber)
   types/          # Shared TypeScript types
   styles/         # Global CSS with design tokens
-template/         # Next.js reference app using @potenlab/ui
+template/
+  admin/          # Admin dashboard starter template
 .storybook/       # Storybook configuration
 ```
 
