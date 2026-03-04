@@ -1,2 +1,2 @@
-/** @deprecated Import from "@/lib/utils" instead */
-export { formatNumber } from "@/lib/utils";
+/** @deprecated Import from "@potenlab/ui" instead */
+export { formatNumber } from "@potenlab/ui";

@@ -4,8 +4,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Pencil } from "lucide-react";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { PageHeader } from "@/components/common/page-header";
+import { Card, CardContent, PageHeader } from "@potenlab/ui";
 import { UserDetailForm } from "@/components/user-management/user-detail-form";
 import { mockUsers } from "@/lib/mock-data";
 import type { UserDetailFormValues } from "@/features/user-management/types";

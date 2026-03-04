@@ -9,9 +9,7 @@ import {
   BASIC_INFO_ROW_3,
 } from "@/features/user-management/types";
 import { ProfileImages } from "@/components/user-management/profile-images";
-import { FormField } from "@/components/common/form-field";
-import { LabeledSwitch } from "@/components/common/labeled-switch";
-import { Separator } from "@/components/ui/separator";
+import { FormField, LabeledSwitch, Separator } from "@potenlab/ui";
 
 export interface UserDetailFormProps {
   user: User;

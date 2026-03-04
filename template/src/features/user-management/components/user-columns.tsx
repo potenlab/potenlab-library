@@ -1,9 +1,7 @@
 "use client";
 
 import type { ColumnDef } from "@tanstack/react-table";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Button } from "@/components/ui/button";
-import { DataTableColumnHeader } from "@/components/common/data-table/data-table-column-header";
+import { Avatar, AvatarImage, AvatarFallback, Button, DataTableColumnHeader } from "@potenlab/ui";
 import type { User } from "@/features/user-management/types";
 
 interface GetUserColumnsOptions {

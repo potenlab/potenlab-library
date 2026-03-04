@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
-import { DashboardLayout } from "@/components/layouts/dashboard-layout";
+import { DashboardLayout } from "@potenlab/ui";
+import { AppSidebar } from "@/components/layouts/app-sidebar";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,7 +31,7 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased" suppressHydrationWarning>
-        <DashboardLayout>{children}</DashboardLayout>
+        <DashboardLayout sidebar={<AppSidebar />}>{children}</DashboardLayout>
       </body>
     </html>
   );

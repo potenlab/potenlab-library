@@ -1,0 +1,7 @@
+src/
+.storybook/
+template/
+*.stories.tsx
+tsup.config.ts
+tsconfig.json
+.claude/

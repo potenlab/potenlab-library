@@ -4,12 +4,7 @@ import { useState, useMemo } from "react";
 import { useRouter } from "next/navigation";
 import { Pencil } from "lucide-react";
 
-import { Card, CardContent } from "@/components/ui/card";
-import { PageHeader } from "@/components/common/page-header";
-import { TabNavigation } from "@/components/common/tab-navigation";
-import { SearchBar } from "@/components/common/search-bar";
-import { PaginationControls } from "@/components/common/pagination-controls";
-import { DataTable } from "@/components/common/data-table/data-table";
+import { Card, CardContent, PageHeader, TabNavigation, SearchBar, PaginationControls, DataTable } from "@potenlab/ui";
 import { getUserColumns } from "@/features/user-management/components/user-columns";
 import { mockUsers, totalUserCount } from "@/lib/mock-data";
 

@@ -9,9 +9,10 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "@/components/ui/accordion";
-import { cn } from "@/lib/utils";
-import type { SidebarNavItem, SidebarSubItem } from "@/types/index";
+  cn,
+  type SidebarNavItem,
+  type SidebarSubItem,
+} from "@potenlab/ui";
 
 const NAV_ITEMS: SidebarNavItem[] = [
   {
