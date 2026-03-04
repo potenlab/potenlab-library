@@ -1,0 +1,67 @@
+---
+sidebar_position: 1
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Accordion
+
+A vertically collapsible content panel built on Radix UI Accordion.
+
+## Demo
+
+<StorybookEmbed storyId="ui-accordion--default" height={300} />
+
+## Import
+
+```tsx
+import {
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="item-1">
+    <AccordionTrigger>Section 1</AccordionTrigger>
+    <AccordionContent>Content for section 1.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="item-2">
+    <AccordionTrigger>Section 2</AccordionTrigger>
+    <AccordionContent>Content for section 2.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+## Props
+
+### Accordion (Root)
+
+| Prop | Type | Default |
+|------|------|---------|
+| `type` | `"single" \| "multiple"` | — (required) |
+| `collapsible` | `boolean` | `false` |
+| `value` | `string \| string[]` | — |
+| `defaultValue` | `string \| string[]` | — |
+| `onValueChange` | `(value: string \| string[]) => void` | — |
+
+### AccordionItem
+
+| Prop | Type | Default |
+|------|------|---------|
+| `value` | `string` | — (required) |
+
+### AccordionTrigger / AccordionContent
+
+Standard `className` and `children` props. The trigger includes an auto-rotating chevron icon.
+
+## Accessibility
+
+- Full keyboard navigation (Arrow keys, Enter, Space)
+- WAI-ARIA Accordion pattern
+- Animated open/close transitions

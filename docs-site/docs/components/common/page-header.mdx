@@ -1,0 +1,54 @@
+---
+sidebar_position: 4
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# PageHeader
+
+A standard page header with title, badge count, subtitle, and action button.
+
+## Demo
+
+<StorybookEmbed storyId="common-page-header--default" height={150} />
+
+## Import
+
+```tsx
+import { PageHeader } from "@potenlab/ui";
+// or
+import { PageHeader } from "@potenlab/ui/components/common";
+```
+
+## Usage
+
+```tsx
+import { Plus } from "lucide-react";
+
+<PageHeader
+  title="Users"
+  subtitle="Manage team members"
+  badgeCount={42}
+  badgeSuffix=" users"
+  actionLabel="Add User"
+  actionIcon={Plus}
+  onAction={() => console.log("add user")}
+/>;
+```
+
+## Variants
+
+### Without Badge
+<StorybookEmbed storyId="common-page-header--without-badge" height={150} />
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `title` | `string` | — (required) |
+| `subtitle` | `string` | — (required) |
+| `badgeCount` | `number` | — |
+| `badgeSuffix` | `string` | `""` |
+| `actionLabel` | `string` | — (required) |
+| `actionIcon` | `LucideIcon` | — |
+| `onAction` | `() => void` | — |

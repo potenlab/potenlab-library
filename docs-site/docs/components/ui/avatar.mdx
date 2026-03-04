@@ -1,0 +1,61 @@
+---
+sidebar_position: 3
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Avatar
+
+A user avatar component with image support, fallback text, size variants, and grouping. Built on Radix UI Avatar.
+
+## Demo
+
+<StorybookEmbed storyId="ui-avatar--with-image" height={100} />
+
+## Import
+
+```tsx
+import {
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  AvatarBadge,
+  AvatarGroup,
+  AvatarGroupCount,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Avatar>
+  <AvatarImage src="/avatar.jpg" alt="User" />
+  <AvatarFallback>JD</AvatarFallback>
+</Avatar>
+```
+
+## Variants
+
+### With Image
+<StorybookEmbed storyId="ui-avatar--with-image" height={100} />
+
+### With Fallback
+<StorybookEmbed storyId="ui-avatar--with-fallback" height={100} />
+
+### Group
+<StorybookEmbed storyId="ui-avatar--group" height={100} />
+
+## Props
+
+### Avatar
+
+| Prop | Type | Default |
+|------|------|---------|
+| `size` | `"default" \| "sm" \| "lg"` | `"default"` |
+
+Sizes: `default` (22px), `sm` (24px), `lg` (40px).
+
+## Accessibility
+
+- Always provide `alt` text on `AvatarImage`
+- `AvatarFallback` renders when the image fails to load

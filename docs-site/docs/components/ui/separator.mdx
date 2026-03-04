@@ -1,0 +1,50 @@
+---
+sidebar_position: 13
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Separator
+
+A visual divider built on Radix UI Separator.
+
+## Demo
+
+<StorybookEmbed storyId="ui-separator--horizontal" height={80} />
+
+## Import
+
+```tsx
+import { Separator } from "@potenlab/ui";
+// or
+import { Separator } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<div className="space-y-4">
+  <p>Section above</p>
+  <Separator />
+  <p>Section below</p>
+</div>
+```
+
+## Variants
+
+### Horizontal
+<StorybookEmbed storyId="ui-separator--horizontal" height={80} />
+
+### Vertical
+<StorybookEmbed storyId="ui-separator--vertical" height={100} />
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+| `decorative` | `boolean` | `true` |
+
+## Accessibility
+
+- Set `decorative={false}` when the separator conveys semantic meaning

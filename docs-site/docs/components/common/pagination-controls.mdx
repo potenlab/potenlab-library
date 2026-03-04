@@ -1,0 +1,54 @@
+---
+sidebar_position: 5
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# PaginationControls
+
+A full pagination toolbar with navigation buttons, page jump input, and items-per-page selector.
+
+## Demo
+
+<StorybookEmbed storyId="common-pagination-controls--default" height={100} />
+
+## Import
+
+```tsx
+import { PaginationControls } from "@potenlab/ui";
+// or
+import { PaginationControls } from "@potenlab/ui/components/common";
+```
+
+## Usage
+
+```tsx
+<PaginationControls
+  currentPage={1}
+  totalPages={10}
+  itemsPerPage={20}
+  onPageChange={(page) => setPage(page)}
+  onItemsPerPageChange={(count) => setPerPage(count)}
+/>;
+```
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `currentPage` | `number` | — (required, 1-based) |
+| `totalPages` | `number` | — (required) |
+| `itemsPerPage` | `number` | — (required) |
+| `onPageChange` | `(page: number) => void` | — (required) |
+| `onItemsPerPageChange` | `(count: number) => void` | — (required) |
+| `labels` | `PaginationLabels` | — |
+| `className` | `string` | — |
+
+### PaginationLabels (i18n)
+
+| Key | Default |
+|-----|---------|
+| `pageJumpPlaceholder` | `"Page"` |
+| `pageJumpButton` | `"Go"` |
+| `itemsPerPageLabel` | `"Items per page"` |
+| `itemSuffix` | `""` |

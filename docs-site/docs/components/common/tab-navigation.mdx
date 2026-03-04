@@ -1,0 +1,55 @@
+---
+sidebar_position: 7
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# TabNavigation
+
+A tab bar component that renders tab triggers without content panels. Content rendering is left to the consumer.
+
+## Demo
+
+<StorybookEmbed storyId="common-tab-navigation--default" height={80} />
+
+## Import
+
+```tsx
+import { TabNavigation } from "@potenlab/ui";
+// or
+import { TabNavigation } from "@potenlab/ui/components/common";
+```
+
+## Usage
+
+```tsx
+const tabs = [
+  { value: "overview", label: "Overview" },
+  { value: "analytics", label: "Analytics" },
+  { value: "settings", label: "Settings", disabled: true },
+];
+
+<TabNavigation
+  tabs={tabs}
+  value={activeTab}
+  onTabChange={setActiveTab}
+/>;
+```
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `tabs` | `TabItem[]` | — (required) |
+| `defaultValue` | `string` | — |
+| `value` | `string` | — (controlled) |
+| `onTabChange` | `(value: string) => void` | — |
+| `className` | `string` | — |
+
+### TabItem
+
+| Field | Type | Default |
+|-------|------|---------|
+| `value` | `string` | — (required) |
+| `label` | `string` | — (required) |
+| `disabled` | `boolean` | `false` |

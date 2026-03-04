@@ -1,0 +1,72 @@
+---
+sidebar_position: 12
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Select
+
+A dropdown select component built on Radix UI Select.
+
+## Demo
+
+<StorybookEmbed storyId="ui-select--default" height={200} />
+
+## Import
+
+```tsx
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+  SelectGroup,
+  SelectLabel,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Select>
+  <SelectTrigger className="w-[200px]">
+    <SelectValue placeholder="Select a fruit" />
+  </SelectTrigger>
+  <SelectContent>
+    <SelectItem value="apple">Apple</SelectItem>
+    <SelectItem value="banana">Banana</SelectItem>
+    <SelectItem value="cherry">Cherry</SelectItem>
+  </SelectContent>
+</Select>
+```
+
+## Props
+
+### Select (Root)
+
+| Prop | Type | Default |
+|------|------|---------|
+| `value` | `string` | — |
+| `defaultValue` | `string` | — |
+| `onValueChange` | `(value: string) => void` | — |
+| `open` | `boolean` | — |
+| `disabled` | `boolean` | `false` |
+
+### SelectContent
+
+| Prop | Type | Default |
+|------|------|---------|
+| `position` | `"popper" \| "item-aligned"` | `"popper"` |
+
+### SelectItem
+
+| Prop | Type | Default |
+|------|------|---------|
+| `value` | `string` | — (required) |
+| `disabled` | `boolean` | `false` |
+
+## Accessibility
+
+- Full keyboard navigation (Arrow keys, Enter, Space, type-ahead)
+- WAI-ARIA Listbox pattern

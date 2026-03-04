@@ -1,0 +1,57 @@
+---
+sidebar_position: 7
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Checkbox
+
+A styled checkbox built on Radix UI Checkbox with a check icon indicator.
+
+## Demo
+
+<StorybookEmbed storyId="ui-checkbox--default" height={100} />
+
+## Import
+
+```tsx
+import { Checkbox } from "@potenlab/ui";
+// or
+import { Checkbox } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<div className="flex items-center gap-2">
+  <Checkbox id="terms" />
+  <Label htmlFor="terms">Accept terms</Label>
+</div>
+```
+
+## Variants
+
+### Default
+<StorybookEmbed storyId="ui-checkbox--default" height={80} />
+
+### Checked
+<StorybookEmbed storyId="ui-checkbox--checked" height={80} />
+
+### Disabled
+<StorybookEmbed storyId="ui-checkbox--disabled" height={80} />
+
+## Props
+
+Extends Radix UI `Checkbox.Root` props:
+
+| Prop | Type | Default |
+|------|------|---------|
+| `checked` | `boolean` | — |
+| `defaultChecked` | `boolean` | — |
+| `onCheckedChange` | `(checked: boolean) => void` | — |
+| `disabled` | `boolean` | `false` |
+
+## Accessibility
+
+- Keyboard accessible (Space to toggle)
+- Renders with proper `role="checkbox"` and `aria-checked`

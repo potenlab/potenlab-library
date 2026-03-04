@@ -1,0 +1,73 @@
+---
+sidebar_position: 8
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Dialog
+
+A modal dialog overlay built on Radix UI Dialog.
+
+## Demo
+
+<StorybookEmbed storyId="ui-dialog--default" height={200} />
+
+## Import
+
+```tsx
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+  DialogClose,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Dialog>
+  <DialogTrigger asChild>
+    <Button>Open Dialog</Button>
+  </DialogTrigger>
+  <DialogContent>
+    <DialogHeader>
+      <DialogTitle>Edit Profile</DialogTitle>
+      <DialogDescription>
+        Make changes to your profile here.
+      </DialogDescription>
+    </DialogHeader>
+    <div className="py-4">
+      <Input placeholder="Name" />
+    </div>
+    <DialogFooter>
+      <Button>Save</Button>
+    </DialogFooter>
+  </DialogContent>
+</Dialog>
+```
+
+## Props
+
+### DialogContent
+
+| Prop | Type | Default |
+|------|------|---------|
+| `showCloseButton` | `boolean` | `true` |
+
+### DialogFooter
+
+| Prop | Type | Default |
+|------|------|---------|
+| `showCloseButton` | `boolean` | `false` |
+
+## Accessibility
+
+- Focus trapping within dialog
+- Escape key dismisses the dialog
+- Overlay click dismisses the dialog
+- WAI-ARIA Dialog pattern

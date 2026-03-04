@@ -1,0 +1,44 @@
+---
+sidebar_position: 16
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Skeleton
+
+A loading placeholder that renders an animated pulsing block.
+
+## Demo
+
+<StorybookEmbed storyId="ui-skeleton--default" height={100} />
+
+## Import
+
+```tsx
+import { Skeleton } from "@potenlab/ui";
+// or
+import { Skeleton } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<div className="space-y-2">
+  <Skeleton className="h-4 w-[250px]" />
+  <Skeleton className="h-4 w-[200px]" />
+</div>
+```
+
+## Variants
+
+### Default
+<StorybookEmbed storyId="ui-skeleton--default" height={100} />
+
+### Card
+<StorybookEmbed storyId="ui-skeleton--card" height={200} />
+
+## Props
+
+Extends all native `<div>` HTML attributes. Size is controlled via `className`.
+
+No custom props or variants.

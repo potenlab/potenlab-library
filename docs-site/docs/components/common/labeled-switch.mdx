@@ -1,0 +1,51 @@
+---
+sidebar_position: 3
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# LabeledSwitch
+
+A Switch paired with an inline clickable label.
+
+## Demo
+
+<StorybookEmbed storyId="common-labeled-switch--default" height={80} />
+
+## Import
+
+```tsx
+import { LabeledSwitch } from "@potenlab/ui";
+// or
+import { LabeledSwitch } from "@potenlab/ui/components/common";
+```
+
+## Usage
+
+```tsx
+const [enabled, setEnabled] = useState(false);
+
+<LabeledSwitch
+  id="notifications"
+  label="Enable notifications"
+  checked={enabled}
+  onCheckedChange={setEnabled}
+/>;
+```
+
+## Variants
+
+### Default (Off)
+<StorybookEmbed storyId="common-labeled-switch--default" height={80} />
+
+### Checked (On)
+<StorybookEmbed storyId="common-labeled-switch--checked" height={80} />
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `id` | `string` | — (required) |
+| `label` | `string` | — (required) |
+| `checked` | `boolean` | — (required) |
+| `onCheckedChange` | `(checked: boolean) => void` | — (required) |

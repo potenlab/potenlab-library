@@ -1,0 +1,43 @@
+---
+sidebar_position: 11
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Label
+
+A styled form label built on Radix UI Label. Responds to peer/group disabled states.
+
+## Demo
+
+<StorybookEmbed storyId="ui-label--default" height={80} />
+
+## Import
+
+```tsx
+import { Label } from "@potenlab/ui";
+// or
+import { Label } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="email">Email</Label>
+  <Input id="email" type="email" />
+</div>
+```
+
+## Props
+
+Extends Radix UI `Label.Root` props:
+
+| Prop | Type | Default |
+|------|------|---------|
+| `htmlFor` | `string` | — |
+
+## Accessibility
+
+- Associates with form controls via `htmlFor`
+- Automatically dims when associated control is disabled

@@ -104,7 +104,11 @@
     "build-storybook": "storybook build",
     "release:patch": "npm version patch && bun run build && npm publish --access public",
     "release:minor": "npm version minor && bun run build && npm publish --access public",
-    "release:major": "npm version major && bun run build && npm publish --access public"
+    "release:major": "npm version major && bun run build && npm publish --access public",
+    "docs:install": "cd docs-site && npm install",
+    "docs:dev": "cd docs-site && npm start",
+    "docs:build": "cd docs-site && npm run build",
+    "docs:serve": "cd docs-site && npm run serve"
   },
   "peerDependencies": {
     "react": ">=18",

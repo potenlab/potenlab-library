@@ -1,0 +1,74 @@
+---
+sidebar_position: 2
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# AlertDialog
+
+A non-dismissable confirmation dialog built on Radix UI AlertDialog. Requires an explicit action to close.
+
+## Demo
+
+<StorybookEmbed storyId="ui-alert-dialog--default" height={200} />
+
+## Import
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogTrigger,
+  AlertDialogContent,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogAction,
+  AlertDialogCancel,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<AlertDialog>
+  <AlertDialogTrigger asChild>
+    <Button variant="destructive">Delete</Button>
+  </AlertDialogTrigger>
+  <AlertDialogContent>
+    <AlertDialogHeader>
+      <AlertDialogTitle>Are you sure?</AlertDialogTitle>
+      <AlertDialogDescription>
+        This action cannot be undone.
+      </AlertDialogDescription>
+    </AlertDialogHeader>
+    <AlertDialogFooter>
+      <AlertDialogCancel>Cancel</AlertDialogCancel>
+      <AlertDialogAction>Confirm</AlertDialogAction>
+    </AlertDialogFooter>
+  </AlertDialogContent>
+</AlertDialog>
+```
+
+## Props
+
+### AlertDialogContent
+
+| Prop | Type | Default |
+|------|------|---------|
+| `size` | `"default" \| "sm"` | `"default"` |
+
+### AlertDialogAction / AlertDialogCancel
+
+Inherits `variant` and `size` from the Button component.
+
+| Prop | Type | Default |
+|------|------|---------|
+| `variant` | Button variant | `"primary"` (Action) / `"outline"` (Cancel) |
+| `size` | Button size | `"default"` |
+
+## Accessibility
+
+- Cannot be dismissed by clicking outside or pressing Escape
+- Focus is trapped within the dialog
+- Follows WAI-ARIA AlertDialog pattern

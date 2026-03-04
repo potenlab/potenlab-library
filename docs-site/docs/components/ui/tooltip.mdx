@@ -1,0 +1,59 @@
+---
+sidebar_position: 21
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Tooltip
+
+A tooltip popup built on Radix UI Tooltip. Dark background with an arrow.
+
+## Demo
+
+<StorybookEmbed storyId="ui-tooltip--default" height={100} />
+
+## Import
+
+```tsx
+import {
+  TooltipProvider,
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+Wrap your app (or a subtree) with `TooltipProvider`:
+
+```tsx
+<TooltipProvider>
+  <Tooltip>
+    <TooltipTrigger>Hover me</TooltipTrigger>
+    <TooltipContent>Tooltip text</TooltipContent>
+  </Tooltip>
+</TooltipProvider>
+```
+
+## Props
+
+### TooltipProvider
+
+| Prop | Type | Default |
+|------|------|---------|
+| `delayDuration` | `number` | `300` |
+
+### TooltipContent
+
+| Prop | Type | Default |
+|------|------|---------|
+| `sideOffset` | `number` | `0` |
+| `side` | `"top" \| "right" \| "bottom" \| "left"` | `"top"` |
+| `align` | `"start" \| "center" \| "end"` | `"center"` |
+
+## Accessibility
+
+- Appears on hover and focus
+- Dismisses on Escape
+- WAI-ARIA Tooltip pattern

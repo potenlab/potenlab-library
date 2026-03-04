@@ -1,0 +1,50 @@
+---
+sidebar_position: 6
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Card
+
+A compound card container with header, content, footer, and action slots.
+
+## Demo
+
+<StorybookEmbed storyId="ui-card--default" height={300} />
+
+## Import
+
+```tsx
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+  CardAction,
+  CardContent,
+  CardFooter,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Card>
+  <CardHeader>
+    <CardTitle>Card Title</CardTitle>
+    <CardDescription>Card description text.</CardDescription>
+  </CardHeader>
+  <CardContent>
+    <p>Card body content goes here.</p>
+  </CardContent>
+  <CardFooter>
+    <Button>Action</Button>
+  </CardFooter>
+</Card>
+```
+
+## Props
+
+All sub-components (`Card`, `CardHeader`, `CardTitle`, `CardDescription`, `CardAction`, `CardContent`, `CardFooter`) extend `React.ComponentProps<"div">`.
+
+No variants.

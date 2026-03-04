@@ -1,0 +1,57 @@
+---
+sidebar_position: 18
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Switch
+
+A toggle switch built on Radix UI Switch. Supports both controlled and uncontrolled usage.
+
+## Demo
+
+<StorybookEmbed storyId="ui-switch--default" height={80} />
+
+## Import
+
+```tsx
+import { Switch } from "@potenlab/ui";
+// or
+import { Switch } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<div className="flex items-center gap-2">
+  <Switch id="notifications" />
+  <Label htmlFor="notifications">Enable notifications</Label>
+</div>
+```
+
+## Variants
+
+### Default (Off)
+<StorybookEmbed storyId="ui-switch--default" height={80} />
+
+### Checked (On)
+<StorybookEmbed storyId="ui-switch--checked" height={80} />
+
+### Disabled
+<StorybookEmbed storyId="ui-switch--disabled" height={80} />
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `checked` | `boolean` | — (uncontrolled) |
+| `defaultChecked` | `boolean` | `false` |
+| `onCheckedChange` | `(checked: boolean) => void` | — |
+| `disabled` | `boolean` | `false` |
+
+Visual states: Blue (`bg-toggle-on`) when checked, gray (`bg-toggle-off`) when unchecked.
+
+## Accessibility
+
+- Keyboard accessible (Space to toggle)
+- Renders with proper `role="switch"` and `aria-checked`

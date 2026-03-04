@@ -1,0 +1,64 @@
+---
+sidebar_position: 19
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Table
+
+A compound HTML table with styled sub-components and horizontal scroll support.
+
+## Demo
+
+<StorybookEmbed storyId="ui-table--default" height={400} />
+
+## Import
+
+```tsx
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+  TableCaption,
+  TableFooter,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Table>
+  <TableCaption>Recent transactions</TableCaption>
+  <TableHeader>
+    <TableRow>
+      <TableHead>Date</TableHead>
+      <TableHead>Description</TableHead>
+      <TableHead className="text-right">Amount</TableHead>
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    <TableRow>
+      <TableCell>2024-01-15</TableCell>
+      <TableCell>Office supplies</TableCell>
+      <TableCell className="text-right">$42.50</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+## Props
+
+All sub-components extend their native HTML element props:
+- `Table` → `<table>`
+- `TableHeader` → `<thead>`
+- `TableBody` → `<tbody>`
+- `TableFooter` → `<tfoot>`
+- `TableRow` → `<tr>` (60px height, hover highlight)
+- `TableHead` → `<th>` (56px height, semibold)
+- `TableCell` → `<td>`
+- `TableCaption` → `<caption>`
+
+No variants.

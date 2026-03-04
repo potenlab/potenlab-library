@@ -1,0 +1,56 @@
+---
+sidebar_position: 17
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Sonner (Toaster)
+
+A toast notification provider wrapping the `sonner` library. Auto-detects theme from `next-themes`.
+
+## Demo
+
+<StorybookEmbed storyId="ui-sonner--default" height={200} />
+
+## Import
+
+```tsx
+import { Toaster } from "@potenlab/ui";
+// or
+import { Toaster } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+Add `<Toaster />` to your root layout:
+
+```tsx
+import { Toaster } from "@potenlab/ui";
+
+export default function RootLayout({ children }) {
+  return (
+    <html>
+      <body>
+        {children}
+        <Toaster />
+      </body>
+    </html>
+  );
+}
+```
+
+Trigger toasts from anywhere:
+
+```tsx
+import { toast } from "sonner";
+
+toast.success("Changes saved!");
+toast.error("Something went wrong.");
+toast.info("New update available.");
+```
+
+## Props
+
+Accepts all props from the `sonner` library's `Toaster` component.
+
+Pre-configured with custom icons for `success`, `info`, `warning`, `error`, and `loading` states.

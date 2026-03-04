@@ -1,0 +1,72 @@
+---
+sidebar_position: 9
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# DropdownMenu
+
+A contextual dropdown menu built on Radix UI DropdownMenu. Supports items, checkbox items, radio groups, sub-menus, and keyboard shortcuts.
+
+## Demo
+
+<StorybookEmbed storyId="ui-dropdown-menu--default" height={200} />
+
+## Import
+
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuLabel,
+  DropdownMenuCheckboxItem,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuSubContent,
+  DropdownMenuShortcut,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">Open Menu</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent>
+    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem>Profile</DropdownMenuItem>
+    <DropdownMenuItem>Settings</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem variant="destructive">Logout</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
+```
+
+## Props
+
+### DropdownMenuContent
+
+| Prop | Type | Default |
+|------|------|---------|
+| `sideOffset` | `number` | `4` |
+
+### DropdownMenuItem
+
+| Prop | Type | Default |
+|------|------|---------|
+| `inset` | `boolean` | `false` |
+| `variant` | `"default" \| "destructive"` | `"default"` |
+
+## Accessibility
+
+- Full keyboard navigation
+- WAI-ARIA Menu pattern
+- Supports nested sub-menus

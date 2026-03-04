@@ -1,0 +1,55 @@
+---
+sidebar_position: 4
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Badge
+
+An inline label component with multiple visual variants. Supports `asChild` for polymorphic rendering.
+
+## Demo
+
+<StorybookEmbed storyId="ui-badge--default" height={100} />
+
+## Import
+
+```tsx
+import { Badge } from "@potenlab/ui";
+// or
+import { Badge } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<Badge variant="default">Active</Badge>
+<Badge variant="green">Completed</Badge>
+<Badge variant="destructive">Error</Badge>
+```
+
+## Variants
+
+### Default
+<StorybookEmbed storyId="ui-badge--default" height={80} />
+
+### Secondary
+<StorybookEmbed storyId="ui-badge--secondary" height={80} />
+
+### Destructive
+<StorybookEmbed storyId="ui-badge--destructive" height={80} />
+
+### Outline
+<StorybookEmbed storyId="ui-badge--outline" height={80} />
+
+### Green
+<StorybookEmbed storyId="ui-badge--green" height={80} />
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `variant` | `"default" \| "secondary" \| "destructive" \| "outline" \| "ghost" \| "link" \| "green"` | `"default"` |
+| `asChild` | `boolean` | `false` |
+
+Extends all native `<span>` HTML attributes.

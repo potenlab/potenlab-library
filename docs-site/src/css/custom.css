@@ -1,0 +1,43 @@
+:root {
+  --ifm-color-primary: #509594;
+  --ifm-color-primary-dark: #488686;
+  --ifm-color-primary-darker: #447e7e;
+  --ifm-color-primary-darkest: #386868;
+  --ifm-color-primary-light: #5fa4a3;
+  --ifm-color-primary-lighter: #67abaa;
+  --ifm-color-primary-lightest: #7fbaba;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #6bb3b2;
+  --ifm-color-primary-dark: #59a9a8;
+  --ifm-color-primary-darker: #50a3a2;
+  --ifm-color-primary-darkest: #3f8a89;
+  --ifm-color-primary-light: #7dbdbc;
+  --ifm-color-primary-lighter: #86c2c1;
+  --ifm-color-primary-lightest: #a1d1d0;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.storybook-embed {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.storybook-embed iframe {
+  width: 100%;
+  border: none;
+}
+
+.storybook-embed__link {
+  display: block;
+  text-align: right;
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-color-emphasis-100);
+}

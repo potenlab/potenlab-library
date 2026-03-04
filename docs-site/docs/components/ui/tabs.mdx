@@ -1,0 +1,62 @@
+---
+sidebar_position: 20
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Tabs
+
+A tabbed interface built on Radix UI Tabs.
+
+## Demo
+
+<StorybookEmbed storyId="ui-tabs--default" height={200} />
+
+## Import
+
+```tsx
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Tabs defaultValue="tab1">
+  <TabsList>
+    <TabsTrigger value="tab1">Tab 1</TabsTrigger>
+    <TabsTrigger value="tab2">Tab 2</TabsTrigger>
+  </TabsList>
+  <TabsContent value="tab1">Content 1</TabsContent>
+  <TabsContent value="tab2">Content 2</TabsContent>
+</Tabs>
+```
+
+## Props
+
+### Tabs (Root)
+
+| Prop | Type | Default |
+|------|------|---------|
+| `orientation` | `"horizontal" \| "vertical"` | `"horizontal"` |
+| `defaultValue` | `string` | — |
+| `value` | `string` | — |
+| `onValueChange` | `(value: string) => void` | — |
+
+### TabsTrigger
+
+| Prop | Type | Default |
+|------|------|---------|
+| `value` | `string` | — (required) |
+| `disabled` | `boolean` | `false` |
+
+### TabsContent
+
+| Prop | Type | Default |
+|------|------|---------|
+| `value` | `string` | — (required) |
+
+## Accessibility
+
+- Full keyboard navigation (Arrow keys, Tab)
+- WAI-ARIA Tabs pattern
+- Active tab indicated via `data-[state=active]`

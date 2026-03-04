@@ -1,0 +1,101 @@
+---
+sidebar_position: 15
+---
+
+# Sidebar
+
+A comprehensive, collapsible sidebar system with mobile Sheet fallback and keyboard shortcut toggle (Ctrl/Cmd+B).
+
+## Import
+
+```tsx
+import {
+  SidebarProvider,
+  Sidebar,
+  SidebarHeader,
+  SidebarContent,
+  SidebarFooter,
+  SidebarMenu,
+  SidebarMenuItem,
+  SidebarMenuButton,
+  SidebarGroup,
+  SidebarGroupLabel,
+  SidebarTrigger,
+  SidebarRail,
+  useSidebar,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<SidebarProvider>
+  <Sidebar>
+    <SidebarHeader>
+      <h2>App Name</h2>
+    </SidebarHeader>
+    <SidebarContent>
+      <SidebarGroup>
+        <SidebarGroupLabel>Navigation</SidebarGroupLabel>
+        <SidebarMenu>
+          <SidebarMenuItem>
+            <SidebarMenuButton isActive>Dashboard</SidebarMenuButton>
+          </SidebarMenuItem>
+          <SidebarMenuItem>
+            <SidebarMenuButton>Settings</SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+      </SidebarGroup>
+    </SidebarContent>
+  </Sidebar>
+  <main>{/* page content */}</main>
+</SidebarProvider>
+```
+
+## Props
+
+### SidebarProvider
+
+| Prop | Type | Default |
+|------|------|---------|
+| `defaultOpen` | `boolean` | `true` |
+| `open` | `boolean` | — (controlled) |
+| `onOpenChange` | `(open: boolean) => void` | — |
+
+### Sidebar
+
+| Prop | Type | Default |
+|------|------|---------|
+| `side` | `"left" \| "right"` | `"left"` |
+| `variant` | `"sidebar" \| "floating" \| "inset"` | `"sidebar"` |
+| `collapsible` | `"offcanvas" \| "icon" \| "none"` | `"offcanvas"` |
+
+### SidebarMenuButton
+
+| Prop | Type | Default |
+|------|------|---------|
+| `variant` | `"default" \| "outline"` | `"default"` |
+| `size` | `"default" \| "sm" \| "lg"` | `"default"` |
+| `isActive` | `boolean` | `false` |
+| `tooltip` | `string \| TooltipContentProps` | — |
+| `asChild` | `boolean` | `false` |
+
+### useSidebar Hook
+
+```tsx
+const {
+  state,         // "expanded" | "collapsed"
+  open,          // boolean
+  setOpen,       // (open: boolean) => void
+  openMobile,    // boolean
+  setOpenMobile, // (open: boolean) => void
+  isMobile,      // boolean
+  toggleSidebar, // () => void
+} = useSidebar();
+```
+
+## Accessibility
+
+- Keyboard shortcut: `Ctrl+B` (Windows/Linux) or `Cmd+B` (macOS) to toggle
+- Mobile fallback uses Sheet component for touch-friendly interaction
+- Rail provides a hover-to-expand interaction

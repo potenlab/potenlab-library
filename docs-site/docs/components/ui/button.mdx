@@ -1,0 +1,61 @@
+---
+sidebar_position: 5
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Button
+
+A polymorphic button component with multiple variants and sizes. Built on Radix UI Slot for `asChild` support.
+
+## Demo
+
+<StorybookEmbed storyId="ui-button--primary" height={100} />
+
+## Import
+
+```tsx
+import { Button } from "@potenlab/ui";
+// or
+import { Button } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<Button variant="primary">Click me</Button>
+```
+
+## Variants
+
+### Primary
+<StorybookEmbed storyId="ui-button--primary" height={100} />
+
+### Secondary
+<StorybookEmbed storyId="ui-button--secondary" height={100} />
+
+### Ghost
+<StorybookEmbed storyId="ui-button--ghost" height={100} />
+
+### Outline
+<StorybookEmbed storyId="ui-button--outline" height={100} />
+
+### Disabled
+<StorybookEmbed storyId="ui-button--disabled" height={100} />
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `variant` | `"primary" \| "secondary" \| "pagination" \| "ghost" \| "outline"` | `"primary"` |
+| `size` | `"default" \| "secondary" \| "pagination" \| "ghost" \| "icon"` | `"default"` |
+| `asChild` | `boolean` | `false` |
+| `disabled` | `boolean` | `false` |
+
+Extends all native `<button>` HTML attributes.
+
+## Accessibility
+
+- Renders as a native `<button>` element by default
+- Use `asChild` to render as a different element (e.g., `<a>`) while preserving button behavior
+- Supports `disabled` state with appropriate styling and `aria` attributes

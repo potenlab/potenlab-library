@@ -1,0 +1,65 @@
+---
+sidebar_position: 14
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Sheet
+
+A sliding panel (drawer) that slides in from any edge. Built on Radix UI Dialog.
+
+## Demo
+
+<StorybookEmbed storyId="ui-sheet--default" height={200} />
+
+## Import
+
+```tsx
+import {
+  Sheet,
+  SheetTrigger,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetDescription,
+  SheetFooter,
+  SheetClose,
+} from "@potenlab/ui";
+```
+
+## Usage
+
+```tsx
+<Sheet>
+  <SheetTrigger asChild>
+    <Button variant="outline">Open</Button>
+  </SheetTrigger>
+  <SheetContent>
+    <SheetHeader>
+      <SheetTitle>Settings</SheetTitle>
+      <SheetDescription>Manage your preferences.</SheetDescription>
+    </SheetHeader>
+    <div className="py-4">{/* content */}</div>
+    <SheetFooter>
+      <SheetClose asChild>
+        <Button>Done</Button>
+      </SheetClose>
+    </SheetFooter>
+  </SheetContent>
+</Sheet>
+```
+
+## Props
+
+### SheetContent
+
+| Prop | Type | Default |
+|------|------|---------|
+| `side` | `"top" \| "right" \| "bottom" \| "left"` | `"right"` |
+| `showCloseButton` | `boolean` | `true` |
+
+## Accessibility
+
+- Focus trapping within sheet
+- Escape key closes the sheet
+- WAI-ARIA Dialog pattern

@@ -1,0 +1,50 @@
+---
+sidebar_position: 10
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# Input
+
+A styled native input element that supports all standard HTML input attributes.
+
+## Demo
+
+<StorybookEmbed storyId="ui-input--default" height={100} />
+
+## Import
+
+```tsx
+import { Input } from "@potenlab/ui";
+// or
+import { Input } from "@potenlab/ui/components/ui";
+```
+
+## Usage
+
+```tsx
+<Input type="email" placeholder="Enter your email" />
+```
+
+## Variants
+
+### Default
+<StorybookEmbed storyId="ui-input--default" height={100} />
+
+### Disabled
+<StorybookEmbed storyId="ui-input--disabled" height={100} />
+
+### With Value
+<StorybookEmbed storyId="ui-input--with-value" height={100} />
+
+## Props
+
+Extends all native `<input>` HTML attributes (`type`, `value`, `onChange`, `disabled`, `placeholder`, etc.).
+
+Supports `aria-invalid` for error state styling.
+
+## Accessibility
+
+- Renders as a native `<input>` element
+- Use with `Label` component for proper labeling
+- Supports `aria-invalid` for form validation feedback

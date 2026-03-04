@@ -1,0 +1,61 @@
+---
+sidebar_position: 2
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# FormField
+
+A labeled form field that renders either an Input or Select based on the `type` prop.
+
+## Demo
+
+<StorybookEmbed storyId="common-form-field--input-field" height={120} />
+
+## Import
+
+```tsx
+import { FormField } from "@potenlab/ui";
+// or
+import { FormField } from "@potenlab/ui/components/common";
+```
+
+## Usage
+
+### Input Field
+
+```tsx
+<FormField
+  id="name"
+  label="Full Name"
+  type="input"
+  value={name}
+  onChange={setName}
+/>
+```
+
+### Select Field
+
+<StorybookEmbed storyId="common-form-field--select-field" height={120} />
+
+```tsx
+<FormField
+  id="role"
+  label="Role"
+  type="select"
+  value={role}
+  options={["Admin", "User", "Guest"]}
+  onChange={setRole}
+/>
+```
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `id` | `string` | — (required) |
+| `label` | `string` | — (required) |
+| `type` | `"input" \| "select"` | — (required) |
+| `value` | `string` | — (required) |
+| `options` | `string[]` | — (required for `type="select"`) |
+| `onChange` | `(value: string) => void` | — (required) |

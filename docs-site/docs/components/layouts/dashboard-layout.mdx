@@ -1,0 +1,44 @@
+---
+sidebar_position: 1
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# DashboardLayout
+
+A top-level page layout that composes a sidebar slot and a main content area. Includes an accessible "Skip to main content" link.
+
+## Demo
+
+<StorybookEmbed storyId="layouts-dashboard-layout--default" height={500} />
+
+## Import
+
+```tsx
+import { DashboardLayout } from "@potenlab/ui";
+// or
+import { DashboardLayout } from "@potenlab/ui/components/layouts";
+```
+
+## Usage
+
+```tsx
+import { DashboardLayout } from "@potenlab/ui";
+
+<DashboardLayout sidebar={<MySidebar />}>
+  <h1>Dashboard</h1>
+  <p>Main content goes here.</p>
+</DashboardLayout>;
+```
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `sidebar` | `React.ReactNode` | — (required) |
+| `children` | `React.ReactNode` | — (required) |
+
+## Accessibility
+
+- Includes a visually-hidden "Skip to main content" link for keyboard navigation
+- Main content is wrapped in `ContentLayout`

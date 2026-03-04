@@ -1,0 +1,48 @@
+---
+sidebar_position: 6
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# SearchBar
+
+A controlled search input component.
+
+## Demo
+
+<StorybookEmbed storyId="common-search-bar--default" height={80} />
+
+## Import
+
+```tsx
+import { SearchBar } from "@potenlab/ui";
+// or
+import { SearchBar } from "@potenlab/ui/components/common";
+```
+
+## Usage
+
+```tsx
+const [query, setQuery] = useState("");
+
+<SearchBar
+  value={query}
+  onChange={setQuery}
+  placeholder="Search users..."
+/>;
+```
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `value` | `string` | — (required) |
+| `onChange` | `(value: string) => void` | — (required) |
+| `placeholder` | `string` | `"Search..."` |
+| `ariaLabel` | `string` | `"Search"` |
+| `className` | `string` | — |
+
+## Accessibility
+
+- Proper `aria-label` for screen readers
+- Built on the styled `Input` component

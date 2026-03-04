@@ -1,0 +1,38 @@
+---
+sidebar_position: 2
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# ContentLayout
+
+A content wrapper that applies the left margin offset to account for the fixed sidebar.
+
+## Demo
+
+<StorybookEmbed storyId="layouts-content-layout--default" height={300} />
+
+## Import
+
+```tsx
+import { ContentLayout } from "@potenlab/ui";
+// or
+import { ContentLayout } from "@potenlab/ui/components/layouts";
+```
+
+## Usage
+
+```tsx
+<ContentLayout>
+  <h1>Page Title</h1>
+  <p>Your page content here.</p>
+</ContentLayout>
+```
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `children` | `React.ReactNode` | — (required) |
+
+Fixed layout: `ml-[324px] pt-5 pr-8 pb-8`.

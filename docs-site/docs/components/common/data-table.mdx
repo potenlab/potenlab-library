@@ -1,0 +1,86 @@
+---
+sidebar_position: 1
+---
+
+import StorybookEmbed from '@site/src/components/StorybookEmbed';
+
+# DataTable
+
+A feature-rich data table built on TanStack Table v8. Supports pagination, sorting, filtering, and row selection with both client-side and server-side modes.
+
+## Demo
+
+<StorybookEmbed storyId="common-data-table--default" height={500} />
+
+## Import
+
+```tsx
+import { DataTable } from "@potenlab/ui";
+// or
+import { DataTable } from "@potenlab/ui/components/common";
+```
+
+**Peer dependency:** `@tanstack/react-table` must be installed.
+
+```bash
+npm install @tanstack/react-table
+```
+
+## Usage
+
+```tsx
+import { DataTable } from "@potenlab/ui";
+import { ColumnDef } from "@tanstack/react-table";
+
+type User = { name: string; email: string; role: string };
+
+const columns: ColumnDef<User>[] = [
+  { accessorKey: "name", header: "Name" },
+  { accessorKey: "email", header: "Email" },
+  { accessorKey: "role", header: "Role" },
+];
+
+const data: User[] = [
+  { name: "Alice", email: "alice@example.com", role: "Admin" },
+  { name: "Bob", email: "bob@example.com", role: "User" },
+];
+
+<DataTable columns={columns} data={data} />;
+```
+
+## Variants
+
+### With Pagination
+<StorybookEmbed storyId="common-data-table--with-pagination" height={500} />
+
+### With Sorting
+<StorybookEmbed storyId="common-data-table--with-sorting" height={500} />
+
+### Empty State
+<StorybookEmbed storyId="common-data-table--empty" height={300} />
+
+## Props
+
+| Prop | Type | Default |
+|------|------|---------|
+| `columns` | `ColumnDef<TData, TValue>[]` | — (required) |
+| `data` | `TData[]` | — (required) |
+| `enableSorting` | `boolean` | `false` |
+| `enableFiltering` | `boolean` | `false` |
+| `enableRowSelection` | `boolean` | `false` |
+| `enablePagination` | `boolean` | `false` |
+| `manualPagination` | `boolean` | `false` |
+| `rowCount` | `number` | — (required for manual pagination) |
+| `pageSizeOptions` | `number[]` | — |
+| `onRowClick` | `(row: TData) => void` | — |
+| `emptyMessage` | `string` | `"No data available."` |
+
+### Controlled State Props
+
+| Prop | Type |
+|------|------|
+| `sorting` / `onSortingChange` | `SortingState` |
+| `columnFilters` / `onColumnFiltersChange` | `ColumnFiltersState` |
+| `pagination` / `onPaginationChange` | `PaginationState` |
+| `rowSelection` / `onRowSelectionChange` | `RowSelectionState` |
+| `columnVisibility` / `onColumnVisibilityChange` | `VisibilityState` |
