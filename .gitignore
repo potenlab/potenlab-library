@@ -1,6 +1,12 @@
 node_modules/
 dist/
 .next/
+*.tgz
 docs-site/node_modules/
 docs-site/build/
 docs-site/.docusaurus/
+template/node_modules/
+template/.next/
+template/bun.lock
+template/package-lock.json
+template/tsconfig.tsbuildinfo

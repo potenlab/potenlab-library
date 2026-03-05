@@ -1,0 +1,82 @@
+{
+  "projectName": "Admin User Management UI",
+  "generatedAt": "2026-03-04T00:00:00Z",
+  "updatedAt": "2026-03-04T00:01:00Z",
+  "summary": {
+    "totalBatches": 1,
+    "totalTasks": 4,
+    "completedTasks": 4,
+    "remainingTasks": 0
+  },
+  "batches": [
+    {
+      "id": "C1",
+      "description": "Localize all views to match Figma design (Korean text, layout fixes, pixel-perfect styling)",
+      "createdAt": "2026-03-04T00:00:00Z",
+      "progress": {
+        "total": 4,
+        "completed": 4,
+        "blocked": 0,
+        "pending": 0
+      },
+      "tasks": [
+        {
+          "id": "C1.1",
+          "title": "Localize types, constants, and mock data to Korean",
+          "description": "Update USER_TABLE_COLUMNS labels, BASIC_INFO_ROW labels, form field options, and mock user data to Korean matching the Figma design exactly.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/features/user-management/types/index.ts",
+            "template/src/lib/mock-data.ts"
+          ],
+          "blocked_by": []
+        },
+        {
+          "id": "C1.2",
+          "title": "Localize sidebar component to Korean and match Figma",
+          "description": "Change all sidebar navigation labels, admin subtitle, and logout text to Korean. Match Figma sidebar layout exactly.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/components/layouts/app-sidebar.tsx"
+          ],
+          "blocked_by": []
+        },
+        {
+          "id": "C1.3",
+          "title": "Localize dashboard page components to Korean and fix layout",
+          "description": "Update page-header, tab-navigation, search-bar, pagination-controls, badge, and page.tsx to Korean. Fix pagination button layout to match Figma (all 4 nav buttons together, then page indicator).",
+          "status": "completed",
+          "complexity": "high",
+          "agent": "potenlab-high-coder",
+          "files": [
+            "template/src/components/common/page-header.tsx",
+            "template/src/components/user-management/tab-navigation.tsx",
+            "template/src/components/user-management/search-bar.tsx",
+            "template/src/components/user-management/pagination-controls.tsx",
+            "template/src/components/user-management/user-table.tsx",
+            "template/src/app/page.tsx",
+            "template/src/components/ui/badge.tsx"
+          ],
+          "blocked_by": []
+        },
+        {
+          "id": "C1.4",
+          "title": "Localize user detail page to Korean and match Figma",
+          "description": "Update user-detail-form section labels, toggle labels, and detail page header props to Korean.",
+          "status": "completed",
+          "complexity": "low",
+          "agent": "potenlab-small-coder",
+          "files": [
+            "template/src/components/user-management/user-detail-form.tsx",
+            "template/src/app/users/[id]/page.tsx"
+          ],
+          "blocked_by": []
+        }
+      ]
+    }
+  ]
+}

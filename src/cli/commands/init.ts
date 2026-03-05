@@ -3,7 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
-const TEMPLATES = ["admin"] as const;
+const TEMPLATES = ["admin", "client-with-auth"] as const;
 
 export async function init() {
   p.intro("potenlab-ui init");
